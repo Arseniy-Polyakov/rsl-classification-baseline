@@ -1,14 +1,30 @@
-# russian-sign-language-classification
+# Базовый метод классификации видео жестовых языков
 
-  # kfolds = KFold(n_splits=5, random_state=42, shuffle=True)
-  # accuracy_metric, f1_metric, classification_report_metric = [], [], []
-  # for i, (train_index, test_index) in enumerate(kfolds.split(X, y)):
-  #   X_train, X_test = X[train_index], X[test_index]
-  #   y_train, y_test = y[train_index], y[test_index]
+Схема функционального метода представлена на рисунке ниже:
 
-  #   model = models[model_name]
-  #   model.fit(X_train, y_train)
-  #   y_pred = model.predict(X_test)
-  #   accuracy_metric.append(accuracy_score(y_pred, y_test))
-  #   f1_metric.append(f1_score(y_pred, y_test, average="macro"))
-  #   classification_report_metric.append(classification_report(y_pred, y_test))
+
+# Результаты классификации дактиля РЖЯ (33 класса) базовым методом
+| Модель | Accuracy |
+|------|------|
+| Гауссовский наивный Байес | 0.10 |
+| k-ближайших соседей | 0.12 |
+| Рандомный лес | 0.24 |
+| CatBoost | 0.27 |
+| XGBoost | 0.32 |
+| LightGBM | 0.38 |
+| Многослойный перцептрон (MLP) | 0.39 |
+| Метод опорных векторов | **0.47** |
+
+# Результаты классификации всех классов Slovo (1000 классов) базовым методом
+| Модель | Accuracy |
+|------|------|
+| LightGBM | 0.02 |
+| CatBoost | 0.03 |
+| Гауссовский наивный Байес | 0.06 |
+| k-ближайших соседей | 0.06 |
+| Логистическая регрессия | 0.06 |
+| Рандомный лес | 0.12 |
+| XGBoost | 0.17 |
+| Метод опорных векторов | 0.21 |
+| Многослойный перцептрон (MLP) | **0.44** |
+
